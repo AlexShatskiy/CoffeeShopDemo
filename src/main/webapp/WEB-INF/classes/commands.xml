@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+
+	<command>
+		<name>LIST_COFFEE</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.ListCoffee</realization>
+	</command>
+	<command>
+		<name>ADD_ORDERITEM</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.AddOrderItem</realization>
+	</command>
+	<command>
+		<name>ORDER_PAGE</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.OrderPage</realization>
+	</command>
+	<command>
+		<name>DELETE_ORDER_ITEM</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.DeleteOrderItem</realization>
+	</command>
+	<command>
+		<name>CONFIRM_ORDER</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.ConfirmOrder</realization>
+	</command>
+
+</commands>
