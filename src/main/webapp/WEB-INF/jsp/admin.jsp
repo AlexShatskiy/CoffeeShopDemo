@@ -8,6 +8,14 @@
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link xmlns="http://www.w3.org/1999/xhtml" href='assets/fonts/glyphicons-halflings-regular.svg' rel='stylesheet' type='image/svg+xml' />
+
+    <style>
+        p.clip {
+            overflow: hidden;
+            padding: 5px;
+            text-overflow: ellipsis;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -26,8 +34,8 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-6 widget">
-                                    <p>Name: ${order.getCustomername()}</p>
-                                    <p>Address: ${order.getCustomeraddress()}</p>
+                                    <p class="clip">Name: ${order.getCustomername()}</p>
+                                    <p class="clip">Address: ${order.getCustomeraddress()}</p>
                                     <p>Phone: ${order.getPhone()}</p>
                                     <p>Price: ${order.getPrice()} $</p>
                                 </div>
@@ -75,7 +83,7 @@
                 <ul class="list-group">
                     <c:forEach var="order" items="${requestScope.listOldOrder}" >
                         <li class="list-group-item">
-                            <p>Address: ${order.getCustomeraddress()}</p>
+                            <p class="clip">Address: ${order.getCustomeraddress()}</p>
                             <p>Price: ${order.getPrice()} $</p>
                             <br>
                         </li>

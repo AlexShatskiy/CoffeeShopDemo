@@ -61,7 +61,7 @@ public class CoffeeController extends HttpServlet {
 
         if("file".equals(MAIN_SETTING)){
             FileCoffeeCreator.createCoffeeList();
-        } else if ("mysql".equals(MAIN_SETTING)){
+        } else if ("mysql".equals(MAIN_SETTING) || "oracle".equals(MAIN_SETTING)){
             ConnectionPool connectionPool = ConnectionPool.getInstance();
             try {
                 connectionPool.initPoolData();
@@ -76,7 +76,7 @@ public class CoffeeController extends HttpServlet {
 
     @Override
     public void destroy() {
-        if("mysql".equals(MAIN_SETTING)) {
+        if("mysql".equals(MAIN_SETTING) || "oracle".equals(MAIN_SETTING)) {
             ConnectionPool connectionPool = ConnectionPool.getInstance();
             try {
                 connectionPool.destroyConnectionPool();

@@ -32,16 +32,30 @@ public final class ConnectionPool {
 
 	private ConnectionPool() {
         DaoPropertiesResourceManager resourceManager = DaoPropertiesResourceManager.getInstance();
-
-		this.driverName = resourceManager.getValue(DaoPropertiesParameter.MYSQL_DRIVER);
-		this.url = resourceManager.getValue(DaoPropertiesParameter.MYSQL_URL);
-		this.user = resourceManager.getValue(DaoPropertiesParameter.MYSQL_USER);
-		this.password = resourceManager.getValue(DaoPropertiesParameter.MYSQL_PASSWORD);
-		try{
-			this.poolSize = Integer.parseInt(resourceManager.getValue(DaoPropertiesParameter.MYSQL_POOLSIZE));
-		}catch (NumberFormatException e) {
-			log.error("fail in ConnectionPool", e);
-			this.poolSize = 6;
+		String mainSetting = resourceManager.getValue(DaoPropertiesParameter.DAO_ACTIVE);
+		if("mysql".equals(mainSetting)) {
+			this.driverName = resourceManager.getValue(DaoPropertiesParameter.MYSQL_DRIVER);
+			this.url = resourceManager.getValue(DaoPropertiesParameter.MYSQL_URL);
+			this.user = resourceManager.getValue(DaoPropertiesParameter.MYSQL_USER);
+			this.password = resourceManager.getValue(DaoPropertiesParameter.MYSQL_PASSWORD);
+			try {
+				this.poolSize = Integer.parseInt(resourceManager.getValue(DaoPropertiesParameter.MYSQL_POOLSIZE));
+			} catch (NumberFormatException e) {
+				log.error("fail in ConnectionPool", e);
+				this.poolSize = 6;
+			}
+			//else oracle
+		} else {
+			this.driverName = resourceManager.getValue(DaoPropertiesParameter.ORACLE_DRIVER);
+			this.url = resourceManager.getValue(DaoPropertiesParameter.ORACLE_URL);
+			this.user = resourceManager.getValue(DaoPropertiesParameter.ORACLE_USER);
+			this.password = resourceManager.getValue(DaoPropertiesParameter.ORACLE_PASSWORD);
+			try {
+				this.poolSize = Integer.parseInt(resourceManager.getValue(DaoPropertiesParameter.ORACLE_POOLSIZE));
+			} catch (NumberFormatException e) {
+				log.error("fail in ConnectionPool", e);
+				this.poolSize = 6;
+			}
 		}
 	}
 

@@ -6,6 +6,8 @@ import com.sh.coffeeshop.dao.impl.file.CoffeeDaoImpl;
 import com.sh.coffeeshop.dao.impl.file.OrderDaoImpl;
 import com.sh.coffeeshop.dao.impl.mysql.CoffeeDaoImplMySQL;
 import com.sh.coffeeshop.dao.impl.mysql.OrderDaoImplMySQL;
+import com.sh.coffeeshop.dao.impl.oracle.CoffeeDaoImplOracle;
+import com.sh.coffeeshop.dao.impl.oracle.OrderDaoImplOracle;
 import com.sh.coffeeshop.dao.manager.DaoPropertiesParameter;
 import com.sh.coffeeshop.dao.manager.DaoPropertiesResourceManager;
 import org.apache.log4j.LogManager;
@@ -30,6 +32,9 @@ public class DaoFactory {
 		} else if ("mysql".equals(mainSetting)){
 			coffeeDao = new CoffeeDaoImplMySQL();
 			orderDao = new OrderDaoImplMySQL();
+		} else if ("oracle".equals(mainSetting)){
+			coffeeDao = new CoffeeDaoImplOracle();
+			orderDao = new OrderDaoImplOracle();
 		} else {
 			coffeeDao = new CoffeeDaoImpl();
 			orderDao = new OrderDaoImpl();
