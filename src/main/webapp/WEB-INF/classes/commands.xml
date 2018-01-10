@@ -21,5 +21,25 @@
 		<name>CONFIRM_ORDER</name>
 		<realization>com.sh.coffeeshop.controller.command.impl.ConfirmOrder</realization>
 	</command>
+	<command>
+		<name>EXECUTE_ORDER</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.ExecuteOrder</realization>
+	</command>
+	<command>
+		<name>LIST_ORDER</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.ListOrder</realization>
+	</command>
+	<command>
+		<name>DELIVERED_ORDER</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.DeliveredOrder</realization>
+	</command>
+	<command>
+		<name>CONGRATULATION</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.Congratulation</realization>
+	</command>
+	<command>
+		<name>CONFIRM_ORDER_PAGE</name>
+		<realization>com.sh.coffeeshop.controller.command.impl.ConfirmOrderPage</realization>
+	</command>
 
 </commands>

@@ -5,10 +5,6 @@ import com.sh.coffeeshop.service.OrderService;
 import com.sh.coffeeshop.service.impl.CoffeeServiceImpl;
 import com.sh.coffeeshop.service.impl.OrderServiceImpl;
 
-/**
- * @author Shatskiy Alex
- * @version 1.0
- */
 public class ServiceFactory {
 private static final ServiceFactory instance = new ServiceFactory();
 	

@@ -1,6 +1,8 @@
 package com.sh.coffeeshop.model;
 
-public class OrderItem {
+import java.io.Serializable;
+
+public class OrderItem implements Serializable {
 
     private Long id;
     private Coffee coffee;
@@ -46,19 +48,17 @@ public class OrderItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderItem orderItem = (OrderItem) o;
+        OrderItem item = (OrderItem) o;
 
-        if (id != null ? !id.equals(orderItem.id) : orderItem.id != null) return false;
-        if (coffee != null ? !coffee.equals(orderItem.coffee) : orderItem.coffee != null) return false;
-        if (order != null ? !order.equals(orderItem.order) : orderItem.order != null) return false;
-        return quantity != null ? quantity.equals(orderItem.quantity) : orderItem.quantity == null;
+        if (id != null ? !id.equals(item.id) : item.id != null) return false;
+        if (coffee != null ? !coffee.equals(item.coffee) : item.coffee != null) return false;
+        return quantity != null ? quantity.equals(item.quantity) : item.quantity == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (coffee != null ? coffee.hashCode() : 0);
-        result = 31 * result + (order != null ? order.hashCode() : 0);
         result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
         return result;
     }
@@ -68,7 +68,6 @@ public class OrderItem {
         return "OrderItem{" +
                 "id=" + id +
                 ", coffee=" + coffee +
-                ", order=" + order +
                 ", quantity=" + quantity +
                 '}';
     }

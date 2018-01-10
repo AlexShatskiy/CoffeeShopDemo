@@ -1,8 +1,9 @@
 package com.sh.coffeeshop.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Coffee {
+public class Coffee implements Serializable {
 
     private Long id;
     private String name;
@@ -10,6 +11,13 @@ public class Coffee {
     private BigDecimal price;
 
     public Coffee() { }
+
+    public Coffee(Long id, String name, String description, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;

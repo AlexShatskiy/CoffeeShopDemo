@@ -1,9 +1,5 @@
 package com.sh.coffeeshop.service.exception;
 
-/**
- * @author Shatskiy Alex
- * @version 1.0
- */
 public class ServiceException extends Exception {
 	private static final long serialVersionUID = 1L;
 

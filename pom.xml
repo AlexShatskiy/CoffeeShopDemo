@@ -4,8 +4,8 @@
   <groupId>com.sh.coffeeshop</groupId>
   <artifactId>coffeeshop</artifactId>
   <packaging>war</packaging>
-  <version>0.1</version>
-  <name>coffeeshop Maven Webapp</name>
+  <version>1.5</version>
+  <name>coffeeshop</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -19,6 +19,7 @@
     <servletapi.version>3.1.0</servletapi.version>
     <jstl.version>1.2</jstl.version>
     <log4j.version>1.2.17</log4j.version>
+    <mysql.connector.version>5.1.42</mysql.connector.version>
 
   </properties>
 
@@ -50,6 +51,13 @@
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>${log4j.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.connector.version}</version>
     </dependency>
 
   </dependencies>

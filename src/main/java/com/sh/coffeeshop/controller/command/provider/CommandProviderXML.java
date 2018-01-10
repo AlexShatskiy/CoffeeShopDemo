@@ -1,7 +1,5 @@
 package com.sh.coffeeshop.controller.command.provider;
 
-
-
 import com.sh.coffeeshop.controller.command.Command;
 import com.sh.coffeeshop.controller.exception.ControllerException;
 import org.apache.log4j.LogManager;
@@ -16,8 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Shatskiy Alex
- * @version 1.0
  * It loads commands from XML file
  */
 public class CommandProviderXML {
@@ -27,7 +23,10 @@ public class CommandProviderXML {
 	private final static String PASS = "/commands.xml";
 	private Map<String, Command> commands;
 
-	public CommandProviderXML() {
+	private static final CommandProviderXML instance = new CommandProviderXML();
+
+
+	private CommandProviderXML() {
 
 		XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 
@@ -41,6 +40,10 @@ public class CommandProviderXML {
 			log.error(e);
 			throw new ControllerException("fail in CommandProviderXML()", e);
 		}
+	}
+
+	public static CommandProviderXML getInstance(){
+		return instance;
 	}
 
 	public Command getCommand(String commandName) {

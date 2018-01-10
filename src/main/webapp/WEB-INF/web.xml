@@ -3,7 +3,7 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
-  <display-name>CourseWeb</display-name>
+  <display-name>CoffeeShop</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -11,12 +11,21 @@
   </welcome-file-list>
 
   <servlet>
-    <servlet-name>Controller</servlet-name>
+    <servlet-name>CoffeeController</servlet-name>
     <servlet-class>com.sh.coffeeshop.controller.CoffeeController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Controller</servlet-name>
+    <servlet-name>CoffeeController</servlet-name>
     <url-pattern>/controller</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminController</servlet-name>
+    <servlet-class>com.sh.coffeeshop.controller.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminController</servlet-name>
+    <url-pattern>/admin</url-pattern>
   </servlet-mapping>
 
 
