@@ -7,13 +7,19 @@ import com.sh.coffeeshop.dao.exception.DaoException;
 import com.sh.coffeeshop.model.Coffee;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("CoffeeDaoImplMySQL")
 public class CoffeeDaoImplMySQL implements CoffeeDao {
+
+    @Autowired
+    ConnectionPool pool;
 
     private static final Logger log = LogManager.getRootLogger();
 
@@ -41,8 +47,6 @@ public class CoffeeDaoImplMySQL implements CoffeeDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-        ConnectionPool pool = ConnectionPool.getInstance();
 
         try {
             connection = pool.takeConnection();
@@ -87,8 +91,6 @@ public class CoffeeDaoImplMySQL implements CoffeeDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-        ConnectionPool pool = ConnectionPool.getInstance();
 
         try {
             connection = pool.takeConnection();
@@ -135,8 +137,6 @@ public class CoffeeDaoImplMySQL implements CoffeeDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-        ConnectionPool pool = ConnectionPool.getInstance();
 
         try {
             connection = pool.takeConnection();

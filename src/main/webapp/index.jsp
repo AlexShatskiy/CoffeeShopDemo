@@ -7,6 +7,6 @@
     <title>index</title>
 </head>
 <body>
-    <c:redirect url="controller?command=LIST_COFFEE"/>
+    <c:redirect url="coffeeList"/>
 </body>
 </html>

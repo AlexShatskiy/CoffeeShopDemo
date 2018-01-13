@@ -5,6 +5,10 @@ import com.sh.coffeeshop.dao.manager.DaoPropertiesParameter;
 import com.sh.coffeeshop.dao.manager.DaoPropertiesResourceManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.Map;
@@ -16,7 +20,8 @@ import java.util.concurrent.Executor;
 /**
  * Сonnect to the database
  */
-public final class ConnectionPool {
+@Component
+public final class ConnectionPool implements InitializingBean, DisposableBean {
 
 	private static final Logger log = LogManager.getRootLogger();
 	private final static ConnectionPool instance = new ConnectionPool();
@@ -57,6 +62,18 @@ public final class ConnectionPool {
 				this.poolSize = 6;
 			}
 		}
+	}
+
+	//for spring, destroy ConnectionPool
+	@Override
+	public void destroy() throws Exception {
+		destroyConnectionPool();
+	}
+
+	//for spring, init ConnectionPool
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		initPoolData();
 	}
 
 	public static ConnectionPool getInstance() {

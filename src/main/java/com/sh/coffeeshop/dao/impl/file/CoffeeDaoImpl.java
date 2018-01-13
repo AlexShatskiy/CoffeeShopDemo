@@ -7,11 +7,13 @@ import com.sh.coffeeshop.dao.manager.DaoPropertiesResourceManager;
 import com.sh.coffeeshop.model.Coffee;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("CoffeeDaoImpl")
 public class CoffeeDaoImpl implements CoffeeDao {
 
     private static final Logger log = LogManager.getRootLogger();

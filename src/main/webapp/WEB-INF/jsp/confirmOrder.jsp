@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>confirmOrder</title>
 
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link xmlns="http://www.w3.org/1999/xhtml" href='assets/fonts/glyphicons-halflings-regular.svg' rel='stylesheet' type='image/svg+xml' />
 </head>
 <body>
@@ -18,8 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 widget">
-            <form method="post" action="controller">
-                <input type="hidden" name="command" value="EXECUTE_ORDER" />
+            <form method="post" action="executeOrder">
                 Address:
                 <input type="text" class="form-control"  name="address" required/>
                 <br>
@@ -32,7 +31,7 @@
                 <button type="submit" class="btn btn-success">
                     Order
                 </button>
-                <a href="controller?command=ORDER_PAGE" class="btn btn-warning">change order</a>
+                <a href="orderPage" class="btn btn-warning">change order</a>
             </form>
         </div>
         <div class="col-md-6 widget">

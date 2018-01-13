@@ -11,6 +11,8 @@ import com.sh.coffeeshop.model.Order;
 import com.sh.coffeeshop.model.OrderItem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -18,7 +20,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("OrderDaoImplMySQL")
 public class OrderDaoImplMySQL implements OrderDao {
+
+    @Autowired
+    ConnectionPool pool;
 
     private static final Logger log = LogManager.getRootLogger();
 
@@ -47,8 +53,6 @@ public class OrderDaoImplMySQL implements OrderDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-        ConnectionPool pool = ConnectionPool.getInstance();
 
         try {
             connection = pool.takeConnection();
@@ -110,8 +114,6 @@ public class OrderDaoImplMySQL implements OrderDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        ConnectionPool pool = ConnectionPool.getInstance();
-
         try {
             connection = pool.takeConnection();
 
@@ -168,8 +170,6 @@ public class OrderDaoImplMySQL implements OrderDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        ConnectionPool pool = ConnectionPool.getInstance();
-
         try {
             connection = pool.takeConnection();
 
@@ -191,8 +191,9 @@ public class OrderDaoImplMySQL implements OrderDao {
                 orderList.add(order);
             }
 
+            preparedStatement = connection.prepareStatement(GET_ORDERITEM_BY_ORDER_ID);
+
             for (Order order : orderList) {
-                preparedStatement = connection.prepareStatement(GET_ORDERITEM_BY_ORDER_ID);
                 preparedStatement.setLong(1, order.getId());
                 resultSet = preparedStatement.executeQuery();
 
@@ -232,8 +233,6 @@ public class OrderDaoImplMySQL implements OrderDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-        ConnectionPool pool = ConnectionPool.getInstance();
 
         try {
             connection = pool.takeConnection();

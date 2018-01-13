@@ -2,23 +2,28 @@ package com.sh.coffeeshop.service.impl;
 
 import com.sh.coffeeshop.dao.CoffeeDao;
 import com.sh.coffeeshop.dao.exception.DaoException;
-import com.sh.coffeeshop.dao.factory.DaoFactory;
 import com.sh.coffeeshop.model.Coffee;
 import com.sh.coffeeshop.service.CoffeeService;
 import com.sh.coffeeshop.service.exception.ServiceException;
 import com.sh.coffeeshop.service.validator.ServiceValidator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Service("CoffeeService")
 public class CoffeeServiceImpl implements CoffeeService {
 
     private static final Logger log = LogManager.getRootLogger();
 
-    DaoFactory factory = DaoFactory.getInstance();
-    CoffeeDao dao = factory.getCoffeeDao();
+    @Autowired
+    @Qualifier("CoffeeDao")
+    private CoffeeDao dao;
+
 
     /**
      * save new Coffee

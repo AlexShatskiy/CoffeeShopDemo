@@ -1,12 +1,13 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>admin</title>
 
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link xmlns="http://www.w3.org/1999/xhtml" href='assets/fonts/glyphicons-halflings-regular.svg' rel='stylesheet' type='image/svg+xml' />
 
     <style>
@@ -54,8 +55,7 @@
                             </div>
                             <br>
                             <div class="row">
-                                <form method="post" action="admin">
-                                    <input type="hidden" name="command" value="DELIVERED_ORDER" />
+                                <form method="post" action="DeliveredOrder">
                                     <input type="hidden" name="orderId" value="${order.getId()}" />
 
                                     <button type="submit" class="btn">
@@ -69,12 +69,7 @@
             </c:if>
         </div>
         <div class="col-md-3 widget">
-            <form method="post" action="admin">
-                <input type="hidden" name="command" value="LOGOUT" />
-                <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-log-out">  Logout</span>
-                </button>
-            </form>
+            <a class="btn btn-danger" style="float: right;" href="<c:url value="/signout" />"><span class="glyphicon glyphicon-log-out">  Logout</span></a>
             <br>
             <br>
             <c:if test="${not empty requestScope.listOldOrder}">

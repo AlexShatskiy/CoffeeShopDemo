@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>congratulation</title>
 
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link xmlns="http://www.w3.org/1999/xhtml" href='assets/fonts/glyphicons-halflings-regular.svg' rel='stylesheet' type='image/svg+xml' />
 </head>
 <body>
@@ -15,7 +15,7 @@
     <br>
     <br>
     <c:if test="${empty sessionScope.congratulation}">
-        <c:redirect url="controller?command=LIST_COFFEE"/>
+        <c:redirect url="coffeeList"/>
     </c:if>
 </header>
 <div class="container">
@@ -28,8 +28,7 @@
             <h2>Your order is now being prepared. Thank you for choosing us.</h2>
             <br>
             <br>
-            <form method="get" action="controller">
-                <input type="hidden" name="command" value="LIST_COFFEE" />
+            <form method="get" action="coffeeList">
                 <button type="submit" class="btn btn-info btn-block">
                     list of coffee
                 </button>

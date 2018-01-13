@@ -3,7 +3,6 @@ package com.sh.coffeeshop.service.impl;
 import com.sh.coffeeshop.dao.CoffeeDao;
 import com.sh.coffeeshop.dao.OrderDao;
 import com.sh.coffeeshop.dao.exception.DaoException;
-import com.sh.coffeeshop.dao.factory.DaoFactory;
 import com.sh.coffeeshop.model.Coffee;
 import com.sh.coffeeshop.model.Order;
 import com.sh.coffeeshop.model.OrderItem;
@@ -12,18 +11,26 @@ import com.sh.coffeeshop.service.exception.ServiceException;
 import com.sh.coffeeshop.service.validator.ServiceValidator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
+@Service("OrderService")
 public class OrderServiceImpl implements OrderService {
 
     private static final Logger log = LogManager.getRootLogger();
 
-    private DaoFactory daoFactory = DaoFactory.getInstance();
-    private CoffeeDao coffeeDao = daoFactory.getCoffeeDao();
-    private OrderDao orderDao = daoFactory.getOrderDao();
+    @Autowired
+    @Qualifier("CoffeeDao")
+    private CoffeeDao coffeeDao;
+
+    @Autowired
+    @Qualifier("OrderDao")
+    private OrderDao orderDao;
 
 
     /**

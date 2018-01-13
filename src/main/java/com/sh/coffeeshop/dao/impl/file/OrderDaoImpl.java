@@ -8,11 +8,13 @@ import com.sh.coffeeshop.model.Order;
 import com.sh.coffeeshop.model.OrderItem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("OrderDaoImpl")
 public class OrderDaoImpl implements OrderDao {
 
     private static final Logger log = LogManager.getRootLogger();
